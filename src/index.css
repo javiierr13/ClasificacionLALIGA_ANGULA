@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --retro-bg: #1a1a2e;
+  --retro-accent: #00ff41; /* Green Matrix/Terminal */
+  --retro-secondary: #ff00ff; /* Neon Pink */
+  --retro-text: #00ff41;
+  --retro-border: #333;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: var(--retro-text);
+  font-family: 'VT323', monospace;
+  overflow-x: hidden;
+}
+
+/* Efecto CRT Scanlines */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 9999;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
+
+h1, h2, h3, .btn-submit, .btn-primary {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Bordes pixelados */
+.retro-box {
+  background: #111;
+  border: 4px solid var(--retro-border);
+  box-shadow: 4px 4px 0px #000, 
+              inset 2px 2px 0px rgba(255,255,255,0.1);
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+  border: 4px solid #444;
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  image-rendering: pixelated;
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.1s;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px #000;
+  transform: translate(4px, 4px);
+}
+
+.win { color: #00ff41; }
+.draw { color: #ffff00; }
+.loss { color: #ff0000; }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--retro-accent);
+}
